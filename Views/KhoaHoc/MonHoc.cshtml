@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MonHoc>
+
+<h2> Khóa Học: @ViewBag.TenKhoaHoc</h2>
+
+<table class="table" style="padding-bottom:30px">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Tên môn học</th>
+            <th>Mô tả</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="3">Không có môn học nào</td>
+            </tr>
+        }
+        else{
+            int stt = 1;
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@stt</td>
+                    <td>@item.TenMonHoc</td>
+                    <td>@item.MoTa</td>
+                </tr>
+                stt++;
+            }
+        }
+    </tbody>
+</table>
+
+<button class="btn btn-secondary mt-3" style="width:150px" onclick="location.href='@Url.Action("Index", "KhoaHoc")'">Back to list</button>

@@ -1,0 +1,16 @@
+﻿@model IEnumerable<KhoaHoc>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div>
+    <h2 class="text-secondary p-3">Danh Sách Các Khóa Học</h2>  
+    <ul>
+        @foreach (var item in Model){
+            <li>
+                <a style="text-decoration:none" asp-action="MonHoc" asp-route-id="@item.ID">@item.TenKhoaHoc</a>
+            </li>
+        }
+    </ul>
+</div>
